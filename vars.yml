@@ -1,0 +1,8 @@
+---
+amq_streams_common_download_dir: "/tmp"
+amq_streams_common_systctl_update_enable: True
+amq_streams_common_offline_install: True
+
+amq_streams_zookeeper_auth_enabled: True
+amq_streams_zookeeper_auth_user: zkadmin
+amq_streams_zookeeper_auth_pass: p@ssw0rd
