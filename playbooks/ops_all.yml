@@ -1,0 +1,18 @@
+---
+- name: "Register all hosts and deploy /etc/hosts"
+  hosts: all
+  gather_facts: False
+  vars:
+    service_state: "{{ operation_name | default('restarted') }}"
+  tasks:
+
+   - name: "Ensure alls services are {{ service_state }}."
+     ansible.builtin.include_tasks: ops.yml
+     vars:
+       service_name: "{{ service.name }}"
+       group_name: "{{ service.group_name }}"
+     loop:
+       - { name: amq_streams_broker, group_name: brokers }
+       - { name: amq_streams_zookeeper, group_name: zookeepers }
+     loop_control:
+       loop_var: service

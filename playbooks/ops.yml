@@ -1,0 +1,15 @@
+---
+- name: "Ensure required parameters are provided."
+  ansible.builtin.assert:
+    that:
+      - service_name is defined and service_name | length > 0
+      - service_state is defined and service_state in 'restarted', 'stopped'
+      - group_name is defined and group_name | length > 0
+    quiet: True
+
+- name: "Ensure service {{ service_name }} is {{ service_state }}"
+  ansible.builtin.service:
+    name: "{{ service_name }}"
+    state: restarted
+  when:
+    - group_name in group_names

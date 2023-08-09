@@ -1,0 +1,4 @@
+---
+- import_playbook: ops_all.yml
+  vars:
+    service_state: 'stopped'
