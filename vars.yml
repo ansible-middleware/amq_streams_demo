@@ -1,5 +1,5 @@
 ---
-amq_streams_common_download_dir: "/tmp"
+amq_streams_common_download_dir: "/opt"
 amq_streams_common_systctl_update_enable: True
 amq_streams_common_offline_install: True
 amq_streams_common_download_remote_src: yes
