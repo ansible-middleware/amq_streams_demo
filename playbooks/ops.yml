@@ -10,6 +10,6 @@
 - name: "Ensure service {{ service_name }} is {{ service_state }}"
   ansible.builtin.service:
     name: "{{ service_name }}"
-    state: restarted
+    state: "{{ service_state }}"
   when:
     - group_name in group_names
