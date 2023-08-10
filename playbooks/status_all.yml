@@ -13,3 +13,10 @@
         - 'amq_streams_broker.service'
       loop_control:
         loop_var: service_name
+
+    - ansible.builtin.command: "ls /opt/"
+      register: ls
+      changed_when: False
+
+    - ansible.builtin.debug:
+        var: ls
